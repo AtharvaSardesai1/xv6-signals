@@ -1,0 +1,21 @@
+digraph "namei"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="namei",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge7_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="exec",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dc9/exec_8c.html#ace32454ed0d37834dcb1cb4f8b727e6e",tooltip=" "];
+  Node2 -> Node3 [id="edge8_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="sys_exec",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d14/sysfile_8c.html#aeaa813ddeb6a5fac3c45714c7351c526",tooltip=" "];
+  Node1 -> Node4 [id="edge9_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="sys_chdir",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d14/sysfile_8c.html#ad1c5f8693cb35b9605fee09eebdda640",tooltip=" "];
+  Node1 -> Node5 [id="edge10_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="sys_link",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d14/sysfile_8c.html#a759600870314007ac558871239122fb7",tooltip=" "];
+  Node1 -> Node6 [id="edge11_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="sys_open",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d14/sysfile_8c.html#a74e45efc661ca17c068bc283b3842e6d",tooltip=" "];
+  Node1 -> Node7 [id="edge12_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="userinit",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/dda/proc_8c.html#a81c8a6a0cae413bc81aa223f7f7b7205",tooltip=" "];
+}

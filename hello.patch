@@ -1,0 +1,124 @@
+diff --git a/Makefile b/Makefile
+index 09d790c..ead1b76 100644
+--- a/Makefile
++++ b/Makefile
+@@ -76,7 +76,7 @@ AS = $(TOOLPREFIX)gas
+ LD = $(TOOLPREFIX)ld
+ OBJCOPY = $(TOOLPREFIX)objcopy
+ OBJDUMP = $(TOOLPREFIX)objdump
+-CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer
++CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer
+ CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
+ ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
+ # FreeBSD ld wants ``elf_i386_fbsd''
+@@ -181,6 +181,7 @@ UPROGS=\
+ 	_usertests\
+ 	_wc\
+ 	_zombie\
++	_hello\
+ 
+ fs.img: mkfs README $(UPROGS)
+ 	./mkfs fs.img README $(UPROGS)
+diff --git a/defs.h b/defs.h
+index 82fb982..d72a4e5 100644
+--- a/defs.h
++++ b/defs.h
+@@ -186,5 +186,6 @@ void            switchkvm(void);
+ int             copyout(pde_t*, uint, void*, uint);
+ void            clearpteu(pde_t *pgdir, char *uva);
+ 
++int sys_hello(void);
+ // number of elements in fixed-size array
+ #define NELEM(x) (sizeof(x)/sizeof((x)[0]))
+diff --git a/hello.c b/hello.c
+new file mode 100644
+index 0000000..2963d23
+--- /dev/null
++++ b/hello.c
+@@ -0,0 +1,7 @@
++#include "user.h"
++
++int main(void){
++	hello();
++	exit();
++}
++
+diff --git a/stat.h b/stat.h
+index 8a80933..9e6bf6f 100644
+--- a/stat.h
++++ b/stat.h
+@@ -1,3 +1,4 @@
++#include "types.h"
+ #define T_DIR  1   // Directory
+ #define T_FILE 2   // File
+ #define T_DEV  3   // Device
+diff --git a/syscall.c b/syscall.c
+index ee85261..1e5198e 100644
+--- a/syscall.c
++++ b/syscall.c
+@@ -103,6 +103,7 @@ extern int sys_unlink(void);
+ extern int sys_wait(void);
+ extern int sys_write(void);
+ extern int sys_uptime(void);
++extern int sys_hello(void);
+ 
+ static int (*syscalls[])(void) = {
+ [SYS_fork]    sys_fork,
+@@ -126,6 +127,7 @@ static int (*syscalls[])(void) = {
+ [SYS_link]    sys_link,
+ [SYS_mkdir]   sys_mkdir,
+ [SYS_close]   sys_close,
++[SYS_hello]   sys_hello,
+ };
+ 
+ void
+diff --git a/syscall.h b/syscall.h
+index bc5f356..4d36bb5 100644
+--- a/syscall.h
++++ b/syscall.h
+@@ -20,3 +20,4 @@
+ #define SYS_link   19
+ #define SYS_mkdir  20
+ #define SYS_close  21
++#define SYS_hello 22
+diff --git a/sysproc.c b/sysproc.c
+index 0686d29..f4f3a19 100644
+--- a/sysproc.c
++++ b/sysproc.c
+@@ -89,3 +89,9 @@ sys_uptime(void)
+   release(&tickslock);
+   return xticks;
+ }
++
++//hello system call
++int sys_hello(void){
++	cprintf("hello world\n");
++	return 0;
++}
+diff --git a/user.h b/user.h
+index 4f99c52..f108187 100644
+--- a/user.h
++++ b/user.h
+@@ -1,3 +1,5 @@
++#include "types.h"
++
+ struct stat;
+ struct rtcdate;
+ 
+@@ -23,6 +25,7 @@ int getpid(void);
+ char* sbrk(int);
+ int sleep(int);
+ int uptime(void);
++int hello(void);
+ 
+ // ulib.c
+ int stat(const char*, struct stat*);
+diff --git a/usys.S b/usys.S
+index 8bfd8a1..6cacd63 100644
+--- a/usys.S
++++ b/usys.S
+@@ -29,3 +29,4 @@ SYSCALL(getpid)
+ SYSCALL(sbrk)
+ SYSCALL(sleep)
+ SYSCALL(uptime)
++SYSCALL (hello)

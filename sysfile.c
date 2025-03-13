@@ -442,3 +442,36 @@ sys_pipe(void)
   fd[1] = fd1;
   return 0;
 }
+
+#define SEEK_SET 0
+#define SEEK_CUR 1
+#define SEEK_END 2
+
+uint sys_lseek(void){
+	struct file *f;
+	int fd, offset, whence, new_offset;
+
+
+	if(argfd(0, &fd, &f) < 0 || argint(1, &offset) < 0 || argint(2, &whence) < 0)
+        	return -1;
+	
+	if(whence == SEEK_SET){
+		new_offset = offset;
+	}
+	else if(whence == SEEK_CUR){
+		new_offset = f->off + offset;
+	}
+	else if(whence == SEEK_END){
+		new_offset = f->ip->size + offset;
+	}
+	else{
+		return -1;
+	}
+
+	if(new_offset <0 || new_offset > f->ip->size)
+		return -1;
+
+	f->off = new_offset;
+	return new_offset;
+
+}

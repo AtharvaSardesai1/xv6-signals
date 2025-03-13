@@ -1,0 +1,46 @@
+digraph "mmu.h"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="mmu.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge20_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="console.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d0/d56/console_8c.html",tooltip=" "];
+  Node1 -> Node3 [id="edge21_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="exec.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dc9/exec_8c.html",tooltip=" "];
+  Node1 -> Node4 [id="edge22_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="fs.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/d5a/fs_8c.html",tooltip=" "];
+  Node1 -> Node5 [id="edge23_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="ide.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d9/d2f/ide_8c.html",tooltip=" "];
+  Node1 -> Node6 [id="edge24_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="kalloc.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d4/def/kalloc_8c.html",tooltip=" "];
+  Node1 -> Node7 [id="edge25_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="lapic.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dc/df6/lapic_8c.html",tooltip=" "];
+  Node1 -> Node8 [id="edge26_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="main.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d0/d29/main_8c.html",tooltip=" "];
+  Node1 -> Node9 [id="edge27_Node000001_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="memide.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/d9b/memide_8c.html",tooltip=" "];
+  Node1 -> Node10 [id="edge28_Node000001_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="mp.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dd/d06/mp_8c.html",tooltip=" "];
+  Node1 -> Node11 [id="edge29_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="pipe.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d47/pipe_8c.html",tooltip=" "];
+  Node1 -> Node12 [id="edge30_Node000001_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="proc.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/dda/proc_8c.html",tooltip=" "];
+  Node1 -> Node13 [id="edge31_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="sleeplock.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/dd1/sleeplock_8c.html",tooltip=" "];
+  Node1 -> Node14 [id="edge32_Node000001_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="spinlock.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d3/d2d/spinlock_8c.html",tooltip=" "];
+  Node1 -> Node15 [id="edge33_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="syscall.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$db/dd8/syscall_8c.html",tooltip=" "];
+  Node1 -> Node16 [id="edge34_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="sysfile.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d14/sysfile_8c.html",tooltip=" "];
+  Node1 -> Node17 [id="edge35_Node000001_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node17 [id="Node000017",label="sysproc.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dd/d35/sysproc_8c.html",tooltip=" "];
+  Node1 -> Node18 [id="edge36_Node000001_Node000018",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node18 [id="Node000018",label="trap.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$dc/d6f/trap_8c.html",tooltip=" "];
+  Node1 -> Node19 [id="edge37_Node000001_Node000019",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node19 [id="Node000019",label="uart.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d1/d87/uart_8c.html",tooltip=" "];
+  Node1 -> Node20 [id="edge38_Node000001_Node000020",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node20 [id="Node000020",label="vm.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$de/de9/vm_8c.html",tooltip=" "];
+}
